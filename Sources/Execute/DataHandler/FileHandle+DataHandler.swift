@@ -30,7 +30,9 @@ extension FileHandle: DataHandler {
     /// Append data to the destination file.
     /// - Parameter data: The data to be appended.
     public func handle(_ data: Data) {
-        seekToEndOfFile()
+        if lseek(fileDescriptor, 0, SEEK_CUR) != -1 {
+            seekToEndOfFile()
+        }
         write(data)
     }
 }

@@ -46,8 +46,12 @@ final class FileHandleDataHandlerTests: XCTestCase {
     func testHandleData() {
         let fileHandle = try! FileHandle(forWritingTo: temporaryFileURL)
 
-        fileHandle.write("test1".data(using: .utf8)!)
-        fileHandle.write("test2".data(using: .utf8)!)
+        fileHandle.handle("test1".data(using: .utf8)!)
+
+        fileHandle.seek(toFileOffset: 0)
+
+        fileHandle.handle("test2".data(using: .utf8)!)
+
         fileHandle.closeFile()
 
         let string = try! String(contentsOf: temporaryFileURL)

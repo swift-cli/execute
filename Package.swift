@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Execute",
+    name: "execute",
     platforms: [
         .macOS(.v10_13)
     ],

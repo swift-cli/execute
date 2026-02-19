@@ -1,7 +1,7 @@
 import ProjectDescription
 
 let project = Project(
-    name: "Execute",
+    name: "execute",
     targets: [
         Target(
             name: "Execute",
